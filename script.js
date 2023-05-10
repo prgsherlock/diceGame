@@ -13,7 +13,7 @@ let playerSection1 = document.querySelector('.player--0');
 let playerSection2 = document.querySelector('.player--1');
 const diceImg = document.querySelector('.dice');
 
-let countPlayer = [0, 0];
+let countPlayer = [0, 0] ,random = 0 ;
 
 
 //generate dice num .
@@ -22,14 +22,10 @@ function diceNumber() {
     !playerSection1.classList.contains('player--winner') &&
     !playerSection2.classList.contains('player--winner')
   ) {
-    let random = Math.trunc(Math.random() * 6) + 1;
-    const arr = [1, 2, 3, 4, 5, 6];
-    for (let i = 0; i < arr.length; i++)
-      if (random === arr[i]) {
-        diceImg.src = `dice-${random}.png`;
-        console.log(random);
+     random = Math.trunc(Math.random() * 6) + 1;
+       diceImg.src = `dice-${random}.png`;        
         diceImg.classList.remove('hide');
-      }
+      
     if (random !== 1) {
       for (let i = 0; i < player.length; i++) {
         // console.log(player[i] === active);
